@@ -7,13 +7,20 @@
     margin: 100px auto;
 }
 
+/*
+    Screen styles
+ */
 
 .screen {
     display: block;
-    height: 5em;
-    background: white;
+    height: 3em;
+    width: 294px;
     margin-bottom: 15px;
 }
+
+/*
+    Buttons, operators, and keys styles
+ */
 
 .button {
     float: left;
