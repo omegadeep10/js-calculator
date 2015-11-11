@@ -1,16 +1,9 @@
-* {
-    margin: 0;
-    padding: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
 
 #calculator {
     background: lightblue;
     padding: 20px;
     display: block;
-    width: 450px;
+    width: 300px;
     margin: 100px auto;
 }
 
@@ -24,9 +17,33 @@
 
 .button {
     float: left;
-    width: 70px;
-    height: 50px;
+    width: 64px;
+    height: 45px;
     margin: 0 14px 15px 0;
+}
+
+.button.key {
+    background-color: none;
+    border: 1px solid black;
+}
+
+.key:active {
+    background-color: black;
+    color: white;
+}
+
+.button.operators {
+    margin-right: 0;
+    width: 64px;
+}
+
+.eval,.operators {
+    background-color: none;
+    border: 1px solid red;
+}
+
+.eval:active, .operators:active {
+    background-color: red;
 }
 
 .clearfix:after {
@@ -34,32 +51,3 @@
   display: table;
   clear: both;
 }
-
-
-
-
-
-
-.buttonz {
-    width: 9.5em;
-    display: block;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ie-border-radius: 6px;
-    border-radius: 6px;
-    padding: .48em .8em;
-    text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
-    font-size: 18px;
-    font-weight: 700;
-    -webkit-transition-property: background-color;
-    -webkit-transition-duration: .15s;
-    -webkit-transition-timing-function: ease-in-out;
-    cursor: pointer;
-    text-decoration: none;
-    margin-bottom: 20px;
-}
-
-    .buttonz:active {
-        margin-top: 25px;
-        margin-bottom: 15px;
-    }
