@@ -1,0 +1,60 @@
+
+#calculator {
+    background: lightblue;
+    padding: 20px;
+    display: block;
+    width: 300px;
+    margin: 100px auto;
+}
+
+/*
+    Screen styles
+ */
+
+#screen {
+    display: block;
+    height: 3em;
+    width: 294px;
+    margin-bottom: 15px;
+}
+
+/*
+    Buttons, operators, and keys styles
+ */
+
+.button {
+    float: left;
+    width: 64px;
+    height: 45px;
+    margin: 0 14px 15px 0;
+}
+
+.button.key {
+    background-color: none;
+    border: 1px solid black;
+}
+
+.key:active {
+    background-color: black;
+    color: white;
+}
+
+.button.operators {
+    margin-right: 0;
+    width: 64px;
+}
+
+.eval,.operators {
+    background-color: none;
+    border: 1px solid red;
+}
+
+.eval:active, .operators:active {
+    background-color: red;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
