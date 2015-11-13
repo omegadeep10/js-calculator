@@ -13,9 +13,10 @@
 
 #screen {
     display: block;
-    height: 3em;
-    width: 294px;
-    margin-bottom: 15px;
+    height: 40px;
+    width: 216px;
+    float: right;
+    margin-bottom: 45px;
 }
 
 /*
@@ -27,11 +28,17 @@
     width: 64px;
     height: 45px;
     margin: 0 14px 15px 0;
+    border: none;
+}
+
+.button.clear {
+    margin-bottom: 45px;
+    background-color: black;
+    color: white;
 }
 
 .button.key {
     background-color: none;
-    border: 1px solid black;
 }
 
 .key:active {
@@ -45,8 +52,9 @@
 }
 
 .eval,.operators {
-    background-color: none;
-    border: 1px solid red;
+    background-color: #8C001A;
+    color: white;
+    
 }
 
 .eval:active, .operators:active {

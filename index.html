@@ -10,7 +10,8 @@
 <!--Calculator-->
   <div id="calculator" class="clearfix">
         <!--Screen-->
-        <input type="text" name="screen" id="screen"></input>
+        <button name="clear" type="button" class="button clear">C</button>
+        <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
 
         <div class="buttons">
             
@@ -18,7 +19,7 @@
             <button name="1" type="button" class="button key">1</button>
             <button name="2" type="button" class="button key">2</button>
             <button name="3" type="button" class="button key">3</button>
-            <button name="x" type="button" class="button operators">x</button>
+            <button name="*" type="button" class="button operators">x</button>
             
             <!--Row 2-->
             <button name="4" type="button" class="button key">4</button>
@@ -35,7 +36,7 @@
             <!--Row 4-->
             <button name="." type="button" class="button key">.</button>
             <button name="0" type="button" class="button key">0</button>
-            <button name="=" type="button" class="button eval">=</button>
+            <button name="=" type="button" class="button eval" id="eval">=</button>
             <button name="-" type="button" class="button operators">-</button>
             
         </div>
