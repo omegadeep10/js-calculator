@@ -25,6 +25,7 @@ for (var i = 0; i < buttonsList.length; i++) {
 function calcMath() {
     //Strip out everything that's not digits or operators
     var solution = sanitizeInput(calcScreen.value);
+    
     //evaluate sanitized input and store it in "output" variable
     var output = eval(solution);
     
@@ -58,7 +59,11 @@ function clearScreen() {
 
 //Use this function to clean any unacceptable characters from the input field
 function sanitizeInput(input) {
+    
+    //regexp of accepted characters
     var acceptedChars = /[^0-9+\-*\/\.\^]/g;
+
+
     var sanitizedInput = input.replace(acceptedChars, "");
     return sanitizedInput;
 }
@@ -84,7 +89,6 @@ function sanitizeInput(input) {
         the screen html element calls this function directly every time the user presses any key in the input box. I know it's not very clean to have javascript code cluttering the
         html file, so we should probably fix this later.
 
-<<<<<<< HEAD
         ---NOTE 4---
         This is the function that's called by the regular keys and operators. It basically adds the value of each key/operator that called it to the calcScreen value. So for example,
         if the "7" key called this function, it would add "7" to the calcScreen value, which would be updated and displayed accordingly. IMPORTANT: It uses the "name" attribute that
@@ -93,6 +97,4 @@ function sanitizeInput(input) {
         "x" because JavaScript understands "*" as the multiplication operator. We could PROBABLY use regex to replace each "x" with "*" but honestly, we can do it later, once the
         calculator is actually functional.
  */
-//event listeners to watch for button presses and append the button value to screen
-
 
