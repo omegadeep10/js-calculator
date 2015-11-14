@@ -23,7 +23,18 @@ for (var i = 0; i < buttonsList.length; i++) {
 
 //function that actually calculates the math
 function calcMath() {
-    console.log(calcScreen.value);
+    //Strip out everything that's not digits or operators
+    var solution = calcScreen.value.replace(/[^-()\d/*+.]/g, "");
+    //evaluate sanitized input and store it in "output" variable
+    var output = eval(solution);
+    
+    //output the result onto the screen if it's valid
+    if (output) {
+        calcScreen.value = output;
+    }
+    else {
+        calcScreen.value = "Bad Input - Try Again.";
+    }
 }
 
 //called by screen; checks if key pressed = enter and calls calcMath function [See NOTE 3]
@@ -37,10 +48,10 @@ function handleKeyPress(event) {
 function punchKey() {
     //get the name of the button that calls this function
     var buttonValue = this.name;
-    console.log(buttonValue);
     calcScreen.value = calcScreen.value + buttonValue;
 }
 
+//clears anything on the screen
 function clearScreen() {
     calcScreen.value = "";
 }
