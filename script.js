@@ -13,3 +13,11 @@ calcScreen.addEventListener("keydown", function(key) {
 
 
 //event listeners to watch for button presses and append the button value to screen
+
+
+//Use this function to clean any unacceptable characters from the input field
+var cleanExpressionChars = function(expressionString){
+	var acceptedChars = /[^0-9+\-*\/\.\^]/g;
+	var cleanedExpressionString = expressionString.replace(acceptedChars, '');
+	return cleanedExpressionString;
+}
