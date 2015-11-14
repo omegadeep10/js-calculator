@@ -24,7 +24,7 @@ for (var i = 0; i < buttonsList.length; i++) {
 //function that actually calculates the math
 function calcMath() {
     //Strip out everything that's not digits or operators
-    var solution = calcScreen.value.replace(/[^-()\d/*+.]/g, "");
+    var solution = sanitizeInput(calcScreen.value);
     //evaluate sanitized input and store it in "output" variable
     var output = eval(solution);
     
