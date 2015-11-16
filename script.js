@@ -7,6 +7,9 @@ var evaluate = document.getElementById("eval");
 //get clear button and store into "clear" variable
 var clear = document.querySelector(".button.clear");
 
+//get message text placeholder
+var messageBox = document.getElementById("messageText");
+
 
 //event listener to calculate math if eval button is clicked
 evaluate.addEventListener("click", calcMath);
@@ -34,9 +37,12 @@ function calcMath() {
     //output the result onto the screen if it's valid
     if (output) {
         calcScreen.value = output;
+        
+        //clear messageBox if we have clean output.
+        messageBox.innerHTML = "";
     }
     else {
-        calcScreen.value = "Bad Input - Try Again.";
+        messageBox.innerHTML = "Bad Input - Try Again.";
     }
 }
 
