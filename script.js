@@ -20,6 +20,8 @@ for (var i = 0; i < buttonsList.length; i++) {
     buttonsList[i].addEventListener("click", punchKey);
 }
 
+//Bring cursor focus to calcScreen to minimize interactions.
+calcScreen.focus();
 
 //function that actually calculates the math
 function calcMath() {
