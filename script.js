@@ -1,9 +1,11 @@
 var calcScreen = document.getElementById("screen");   //get screen
 var evaluate = document.getElementById("eval");   //get "=" button
 var clear = document.querySelector(".button.clear");   //get "C" button
+var messageBox = document.getElementById("messageText");   //get messagebox
 
 
-//calculates math if "=" button is clicked
+
+//event listener to calculate math if eval button is clicked
 evaluate.addEventListener("click", calcMath);
 //clears screen if "C" button is clicked
 clear.addEventListener("click", clearScreen);
@@ -25,17 +27,35 @@ calcScreen.focus();
 
 //function that actually calculates the math
 function calcMath() {
-    var solution = sanitizeInput(calcScreen.value);   //sanitize input
-    var output = eval(solution);   //calculate math using eval
-    
+    var expression = sanitizeInput(calcScreen.value);   //sanitize input
+    var output = eval(expression);   //calculate math using eval
+
+
     //output the result onto the screen if it's valid
     if (output) {
         calcScreen.value = output;
+        
+        //clear messageBox if we have clean output.
+        messageBox.innerHTML = "";
     }
     else {
-        calcScreen.value = "Bad Input - Try Again.";
+        // Return sanitized version on expression to aid user.
+        calcScreen.value = expression;
+        messageBox.innerHTML = "Bad Input - Try Again.";
     }
 }
+
+
+
+
+
+
+/*
+
+    ALL FUNCTIONS BELOW
+
+ */
+
 
 //called by screen; checks if key pressed = enter and calls calcMath function [See NOTE 3]
 function handleKeyPress(event) {
@@ -44,6 +64,9 @@ function handleKeyPress(event) {
     }
 }
 
+
+
+
 //adds the value of the key that calls this function to the calcScreen [See NOTE 4]
 function punchKey() {
     //get the name of the button that calls this function
@@ -51,14 +74,21 @@ function punchKey() {
     calcScreen.value = calcScreen.value + buttonValue;
 }
 
+
+
+
 //clears anything on the screen
 function clearScreen() {
     calcScreen.value = "";
 }
 
+
+
+
 //Use this function to clean any unacceptable characters from the input field
 function sanitizeInput(input) {
-    var acceptedChars = /[^0-9+\-*\/\.\^]/g;   //regexp of accepted characters
+    
+    var acceptedChars = /[^0-9\+\-\*\/\.\^]+/g;   //regexp of accepted characters
     var sanitizedInput = input.replace(acceptedChars, "");
 
     return sanitizedInput;
