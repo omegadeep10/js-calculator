@@ -29,10 +29,10 @@ calcScreen.focus();
 //function that actually calculates the math
 function calcMath() {
     //Strip out everything that's not digits or operators
-    var solution = sanitizeInput(calcScreen.value);
+    var expression = sanitizeInput(calcScreen.value);
     
     //evaluate sanitized input and store it in "output" variable
-    var output = eval(solution);
+    var output = eval(expression);
     
     //output the result onto the screen if it's valid
     if (output) {
@@ -42,6 +42,8 @@ function calcMath() {
         messageBox.innerHTML = "";
     }
     else {
+        // Return sanitized version on expression to aid user.
+        calcScreen.value = expression;
         messageBox.innerHTML = "Bad Input - Try Again.";
     }
 }
@@ -69,7 +71,7 @@ function clearScreen() {
 function sanitizeInput(input) {
     
     //regexp of accepted characters
-    var acceptedChars = /[^0-9+\-*\/\.\^]/g;
+    var acceptedChars = /[^0-9\+\-\*\/\.\^]+/g;
 
 
     var sanitizedInput = input.replace(acceptedChars, "");
