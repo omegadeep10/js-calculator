@@ -28,11 +28,21 @@ calcScreen.focus();
 //function that actually calculates the math
 function calcMath() {
     var expression = sanitizeInput(calcScreen.value);   //sanitize input
-    var output = eval(expression);   //calculate math using eval
+    var output;  //initialize output here, so both the try/catch and if/else later can use it
+    
+    //Try/Catch statement to handle the eval function crashing
+    try {
+        output = eval(expression);   //calculate math using eval
+    }
+    catch(err) {
+        console.log("Eval failed: Invalid Input");
+    }
+
 
 
     //output the result onto the screen if it's valid
     if (output) {
+        console.log(output + "<- Output");
         calcScreen.value = output;
         
         //clear messageBox if we have clean output.
@@ -44,9 +54,6 @@ function calcMath() {
         messageBox.innerHTML = "Bad Input - Try Again.";
     }
 }
-
-
-
 
 
 
