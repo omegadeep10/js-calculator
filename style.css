@@ -3,7 +3,7 @@
     background: #2c302e;
     padding: 20px;
     display: block;
-    width: 300px;
+    width: 260px;
     margin: 100px auto;
 }
 
@@ -31,29 +31,48 @@
 
 .button {
     float: left;
-    width: 64px;
-    height: 40px;
+    width: 61px;
+    height: 50px;
     background-color: #2c302e;
-    border: 1px solid white;
+    border: none;
     color: white;
 }
 
-.plus {
-    height: 80px;
+.plus, .eval {
+    border-radius: 30px;
+    background-color: #495780;
 }
 
-.eval {
-    height: 80px;
+.backspace img {
+    width: 50%;
 }
+
+
+/*POSITIONING CSS*/
+
+.plus, .eval {
+    height: 105px; /*Must be .button height + 5px to account for margins*/
+}
+
 
 .calc-numbers {
-    width: 192px;
+    max-width: 100%;
     float: left;
 }
 
-.calc-operators {
+    .calc-numbers .row > .button:not(:last-child), .operator-row > .button:not(:last-child) {
+            margin-right: 5px;
+    }
 
-}
+    .calc-numbers .row .button, .calc-operators .button {
+        margin-top: 5px;
+    }
+
+    .calc-operators .button {
+        margin-top: 5px;
+        margin-left: 5px;
+    }
+
 
 .clearfix:after {
   content: "";
