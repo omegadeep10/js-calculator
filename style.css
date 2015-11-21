@@ -3,7 +3,7 @@
     background: #2c302e;
     padding: 20px;
     display: block;
-    width: 260px;
+    width: 270px;
     margin: 100px auto;
 }
 
@@ -16,13 +16,15 @@
     height: 70px;
     width: 100%;
     float: right;
-    margin-bottom: 53px;
     background-color: #2c302e;
     border: none;
     border-bottom: 1px solid #777;
     border-top: 1px solid #777;
+    text-align: right;
+    margin-bottom: 30px;
+    padding: 10px 0;
     color: white;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 /*
@@ -38,9 +40,10 @@
     color: white;
 }
 
-.plus, .eval {
+.operators, .calc-operators > .button {
     border-radius: 30px;
     background-color: #495780;
+    width: 50px;
 }
 
 .backspace img {
@@ -50,28 +53,25 @@
 
 /*POSITIONING CSS*/
 
-.plus, .eval {
-    height: 105px; /*Must be .button height + 5px to account for margins*/
-}
-
-
 .calc-numbers {
     max-width: 100%;
     float: left;
 }
 
     .calc-numbers .row > .button:not(:last-child), .operator-row > .button:not(:last-child) {
-            margin-right: 5px;
+            margin-right: 10px;
     }
 
-    .calc-numbers .row .button, .calc-operators .button {
-        margin-top: 5px;
+    .calc-numbers .row .button {
+        margin-top: 10px;
     }
 
     .calc-operators .button {
-        margin-top: 5px;
-        margin-left: 5px;
+        margin-left: 10px;
+        margin-top: 10px;
     }
+
+/*END POSITIONING CSS*/
 
 
 .clearfix:after {
