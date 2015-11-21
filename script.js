@@ -42,7 +42,6 @@ function calcMath() {
 
     //output the result onto the screen if it's valid
     if (output) {
-        console.log(output + "<- Output");
         calcScreen.value = output;
         
         //clear messageBox if we have clean output.
