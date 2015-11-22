@@ -1,7 +1,7 @@
 
 #calculator {
     background: #2c302e;
-    padding: 20px;
+    padding: 20px 20px 40px 20px;
     display: block;
     width: 310px;
     margin: 100px auto;
@@ -38,7 +38,6 @@
     border: none;
     color: white;
     font-size: 1.2em;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .operators, .calc-operators > .button {
