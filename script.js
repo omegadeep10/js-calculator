@@ -2,6 +2,7 @@ var calcScreen = document.getElementById("screen");   //get screen
 var evaluate = document.getElementById("eval");   //get "=" button
 var clear = document.querySelector(".button.clear");   //get "C" button
 var messageBox = document.getElementById("messageText");   //get messagebox
+var deleteKey = document.querySelector(".button.backspace"); //get backspace key
 
 
 
@@ -9,6 +10,11 @@ var messageBox = document.getElementById("messageText");   //get messagebox
 evaluate.addEventListener("click", calcMath);
 //clears screen if "C" button is clicked
 clear.addEventListener("click", clearScreen);
+//deletes last character entered into calculator screen
+deleteKey.addEventListener("click", deleteLastCharacter);
+
+
+
 //Gets list of all buttons that are keys or operators
 var buttonsList = document.querySelectorAll(".button.key, .button.operators");
 
@@ -94,8 +100,13 @@ function clearScreen() {
 //Use this function to clean any unacceptable characters from the input field
 function sanitizeInput(input) {
     
-    var acceptedChars = /[^0-9\+\-\*\/\.\^]+/g;   //regexp of accepted characters
+    var acceptedChars = /[^0-9\+\-\*\/\.\^\(\)]+/g;   //regexp of accepted characters
     var sanitizedInput = input.replace(acceptedChars, "");
 
     return sanitizedInput;
+}
+
+//deletes last character from input field
+function deleteLastCharacter() {
+    calcScreen.value = calcScreen.value.slice(0, calcScreen.value.length - 1);  //sets calcScreen to whatever it was before with the last character removed
 }
