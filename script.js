@@ -5,7 +5,6 @@ var messageBox = document.getElementById("messageText");   //get messagebox
 var deleteKey = document.querySelector(".button.backspace"); //get backspace key
 
 
-
 //event listener to calculate math if eval button is clicked
 evaluate.addEventListener("click", calcMath);
 //clears screen if "C" button is clicked
@@ -52,11 +51,13 @@ function calcMath() {
         
         //clear messageBox if we have clean output.
         messageBox.innerHTML = "";
+        messageBox.className = "";
     }
     else {
         // Return sanitized version on expression to aid user.
-        calcScreen.value = expression;
+        calcScreen.value = expression;   
         messageBox.innerHTML = "Bad Input - Try Again.";
+        messageBox.className = "active";
     }
     calcScreen.focus();
 }
@@ -95,6 +96,7 @@ function punchKey() {
 function clearScreen() {
     calcScreen.value = "";
     calcScreen.focus();
+    messageBox.className = "";
 }
 
 

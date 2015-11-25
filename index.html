@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>JS Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,200' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Abel' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
 <!--Calculator-->
   <div id="calculator" class="clearfix">
         <!--Screen-->
-        <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
-        <p id="messageText"></p>
+        <div class="clearfix screen-container">
+            <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
+            <span id="messageText"></span>
+        </div>
         
         <div class="buttons">
             
