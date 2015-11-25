@@ -58,6 +58,7 @@ function calcMath() {
         calcScreen.value = expression;
         messageBox.innerHTML = "Bad Input - Try Again.";
     }
+    calcScreen.focus();
 }
 
 
@@ -84,6 +85,7 @@ function punchKey() {
     //get the name of the button that calls this function
     var buttonValue = this.name;
     calcScreen.value = calcScreen.value + buttonValue;
+    calcScreen.focus();
 }
 
 
@@ -92,6 +94,7 @@ function punchKey() {
 //clears anything on the screen
 function clearScreen() {
     calcScreen.value = "";
+    calcScreen.focus();
 }
 
 
@@ -109,4 +112,5 @@ function sanitizeInput(input) {
 //deletes last character from input field
 function deleteLastCharacter() {
     calcScreen.value = calcScreen.value.slice(0, calcScreen.value.length - 1);  //sets calcScreen to whatever it was before with the last character removed
+    calcScreen.focus();
 }
