@@ -56,7 +56,7 @@ function calcMath() {
     else {
         // Return sanitized version on expression to aid user.
         calcScreen.value = expression;   
-        messageBox.innerHTML = "Bad Input - Try Again.";
+        messageBox.innerHTML = "Bad Input";
         messageBox.className = "active";
     }
     calcScreen.focus();
@@ -95,8 +95,8 @@ function punchKey() {
 //clears anything on the screen
 function clearScreen() {
     calcScreen.value = "";
-    calcScreen.focus();
     messageBox.className = "";
+    calcScreen.focus();
 }
 
 
