@@ -1,14 +1,21 @@
+body {
+    text-align: center;
+}
 
 #calculator {
     background: #2c302e;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 310px;
-    margin: 100px auto;
+    display: inline-block;
+    
 }
 
+.calc-container {
+    width: 310px;
+    display: inline-block;
+    padding: 20px 20px 40px 20px;
+    border-right: 1px solid #666;
+}
 /*
-    Screen styles
+    CALCULATOR Screen styles
  */
 .screen-container {
     position: relative;
@@ -49,8 +56,11 @@
     }
 
 /*
-    Buttons, operators, and keys styles
+    CALCULATOR Buttons, operators, and keys styles
  */
+.buttons {
+    display: inline-block;
+}
 
 .button {
     float: left;
@@ -78,11 +88,12 @@
 }
 
 .backspace img {
-    width: 50%;
+    width: 40%;
+    padding-top: 7px;
 }
 
 
-/*POSITIONING CSS*/
+/* CALCULATOR POSITIONING CSS*/
 
 .calc-numbers {
     max-width: 100%;
@@ -104,6 +115,12 @@
     }
 
 /*END POSITIONING CSS*/
+
+
+/*HISTORY STYLES*/
+#history {
+    display: inline-block;
+}
 
 
 .clearfix:after {

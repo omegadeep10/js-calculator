@@ -10,61 +10,68 @@
 
 <!--Calculator-->
   <div id="calculator" class="clearfix">
-        <!--Screen-->
-        <div class="clearfix screen-container">
-            <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
-            <span id="messageText"></span>
-        </div>
+        <div class="calc-container clearfix">
+            <!--Screen-->
+            <div class="clearfix screen-container">
+                <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
+                <span id="messageText"></span>
+            </div>
+            
+            <div class="buttons clearfix">
+                
+                <div class="operator-row clearfix">
+                    <button name="clear" type="button" class="button clear">C</button>
+                    <button name="(" type="button" class="button key">(</button>
+                    <button name=")" type="button" class="button key">)</button>
+                    <button name="*" type="button" class="button operators">&times</button>
+                </div>
+                
+                <div class="calc-numbers">
+                    <div class="row">
+                        <button name="1" type="button" class="button key">1</button>
+                        <button name="2" type="button" class="button key">2</button>
+                        <button name="3" type="button" class="button key">3</button>
+                    </div>
+                    
+                    <div class="row">
+                        <button name="4" type="button" class="button key">4</button>
+                        <button name="5" type="button" class="button key">5</button>
+                        <button name="6" type="button" class="button key">6</button>
+                    </div>
+                    
+                    <div class="row">
+                        <button name="7" type="button" class="button key">7</button>
+                        <button name="8" type="button" class="button key">8</button>
+                        <button name="9" type="button" class="button key">9</button>
+                    </div>
+
+                    <div class="row">
+                        <button name="D" type="button" class="button backspace"><img src="assets/backspace1.png" alt="backspace"/></button>
+                        <button name="0" type="button" class="button key">0</button>
+                        <button name="." type="button" class="button key">.</button>
+                    </div>
+
+                </div>
+                
+                <div class="calc-operators clearfix">
+                    <button name="/" type="button" class="button operators">&divide</button>
+                    <button name="-" type="button" class="button operators">-</button>
+                    <button name="+" type="button" class="button operators plus">+</button>
+                    <button name="=" type="button" class="button eval" id="eval">=</button>
+                </div>
+            </div> <!--class-buttons-->
+        </div><!--class-calc-container-->
         
-        <div class="buttons">
-            
-            <div class="operator-row clearfix">
-                <button name="clear" type="button" class="button clear">C</button>
-                <button name="(" type="button" class="button key">(</button>
-                <button name=")" type="button" class="button key">)</button>
-                <button name="*" type="button" class="button operators">&times</button>
-            </div>
-            
-            <div class="calc-numbers">
-                <div class="row">
-                    <button name="1" type="button" class="button key">1</button>
-                    <button name="2" type="button" class="button key">2</button>
-                    <button name="3" type="button" class="button key">3</button>
-                </div>
-                
-                <div class="row">
-                    <button name="4" type="button" class="button key">4</button>
-                    <button name="5" type="button" class="button key">5</button>
-                    <button name="6" type="button" class="button key">6</button>
-                </div>
-                
-                <div class="row">
-                    <button name="7" type="button" class="button key">7</button>
-                    <button name="8" type="button" class="button key">8</button>
-                    <button name="9" type="button" class="button key">9</button>
-                </div>
-
-                <div class="row">
-                    <button name="D" type="button" class="button backspace"><img src="assets/backspace1.png" alt="backspace"/></button>
-                    <button name="0" type="button" class="button key">0</button>
-                    <button name="." type="button" class="button key">.</button>
-                </div>
-
-            </div>
-            
-            <div class="calc-operators">
-                <button name="/" type="button" class="button operators">&divide</button>
-                <button name="-" type="button" class="button operators">-</button>
-                <button name="+" type="button" class="button operators plus">+</button>
-                <button name="=" type="button" class="button eval" id="eval">=</button>
-            </div>
-    
-        </div>
-
         <div id="history">
+            <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
+            <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
+            <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
+            <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
+            <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
         </div>
+  </div><!--id-calculator-->
 
-  </div>
+
 
     <script src="script.js"></script>
   </body>
