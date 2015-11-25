@@ -3,6 +3,7 @@ var evaluate = document.getElementById("eval");   //get "=" button
 var clear = document.querySelector(".button.clear");   //get "C" button
 var messageBox = document.getElementById("messageText");   //get messagebox
 var deleteKey = document.querySelector(".button.backspace"); //get backspace key
+var historyDiv = document.getElementById("history"); //get history div
 
 
 //event listener to calculate math if eval button is clicked
@@ -52,6 +53,13 @@ function calcMath() {
         //clear messageBox if we have clean output.
         messageBox.innerHTML = "";
         messageBox.className = "";
+
+        //add expression and output to the history
+        addToHistory(expression, output);
+        //remove first child if number of elements is greater than 9
+        if (historyDiv.children.length > 10) {
+            historyDiv.removeChild(historyDiv.getElementsByTagName("p")[0]); //get first "p" element and remove it
+        }
     }
     else {
         // Return sanitized version on expression to aid user.
@@ -59,6 +67,7 @@ function calcMath() {
         messageBox.innerHTML = "Bad Input";
         messageBox.className = "active";
     }
+
     calcScreen.focus();
 }
 
@@ -115,4 +124,9 @@ function sanitizeInput(input) {
 function deleteLastCharacter() {
     calcScreen.value = calcScreen.value.slice(0, calcScreen.value.length - 1);  //sets calcScreen to whatever it was before with the last character removed
     calcScreen.focus();
+}
+
+
+function addToHistory(expression, output) {
+    historyDiv.innerHTML += "<p><span class=\"history item\">"+ expression + "</span> = <span class=\"history answer\">" + output + "</span></p>";
 }

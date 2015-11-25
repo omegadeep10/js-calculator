@@ -139,6 +139,7 @@ body {
     padding: 10px 20px;
     text-align: left;
     font-family: "Abel", sans-serif;
+    min-width: 230px;
 }
     #history h3 {
         font-family: "Open Sans Condensed", sans-serif;

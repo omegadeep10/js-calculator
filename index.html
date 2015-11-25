@@ -13,7 +13,7 @@
         <div class="calc-container clearfix">
             <!--Screen-->
             <div class="clearfix screen-container">
-                <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)"></input>
+                <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)" maxlength="1000"></input>
                 <span id="messageText"></span>
             </div>
             
@@ -64,7 +64,6 @@
         
         <div id="history">
             <h3>History</h3>
-
             <p><span class="history item">2+2</span> = <span class="history answer">4</span></p>
             <p><span class="history item">2+2/6-4(3.1)</span> = <span class="history answer">4567</span></p>
             <p><span class="history item">2+5/45</span> = <span class="history answer">44</span></p>
