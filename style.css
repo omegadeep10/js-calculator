@@ -79,6 +79,7 @@ body {
 }
     .button:hover {
         background-color: #333835;
+        cursor: pointer;
     }
 
 .operators, .calc-operators > .button {
@@ -142,6 +143,12 @@ body {
     #history h3 {
         font-family: "Open Sans Condensed", sans-serif;
         font-size: 1.5em;
+        border-bottom: 1px solid #666;
+        padding-bottom: 10px;
+    }
+
+    #history p {
+        margin: 20px 0;
     }
 
     #history .item {
@@ -150,6 +157,7 @@ body {
     }
         #history .item:hover {
             background-color: #41437f;
+            cursor: pointer;
         }
 
     #history .answer {
@@ -158,6 +166,7 @@ body {
     }
         #history .answer:hover {
             background-color: #306d36;
+            cursor: pointer;
         }
 
 
