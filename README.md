@@ -1,8 +1,3 @@
 # Introduction
 
-This is a small JavaScript calculator. It can do basic math like addition, subtraction, division and multiplication. Here are all the features that are planned, and need to be implemented. Items marked with a question mark at the end are undecided features.
-
-* Basic Math (addition, subtraction, division, multiplication) [COMPLETE]
-* Keyboard support
-* History of previous calculations?
-* Order of operations support? [COMPLETE]
+This is a small JavaScript calculator. It can do basic math like addition, subtraction, division and multiplication. Check the issues page for a list of features and problems with the calculator.
