@@ -1,14 +1,21 @@
+body {
+    text-align: center;
+}
 
 #calculator {
     background: #2c302e;
-    padding: 20px 20px 40px 20px;
-    display: block;
-    width: 310px;
-    margin: 100px auto;
+    display: inline-block;
+    margin-top: 8%;
 }
 
+.calc-container {
+    width: 270px;
+    display: inline-block;
+    padding: 20px 40px 40px 20px;
+    border-right: 1px solid #666;
+}
 /*
-    Screen styles
+    CALCULATOR Screen styles
  */
 .screen-container {
     position: relative;
@@ -16,13 +23,13 @@
 
 #screen {
     display: block;
-    width: 90%;
+    width: 92%;
     float: right;
     background-color: #2c302e;
     border: none;
     border-bottom: 1px solid #666;
     text-align: right;
-    margin: 0 12px 30px 0;
+    margin: 0 2px 30px 0;
     padding: 18px 0;
     color: white;
     font-size: 2em;
@@ -34,7 +41,7 @@
     background-color: #D34F73;
     padding: 6px 7px;
     position: absolute;
-    left: 20px;
+    left: 21px;
     top: 20px;
     
     text-align: center;
@@ -48,41 +55,59 @@
         display: block;
     }
 
+    #messageText:hover {
+        opacity: .4;
+    }
+
 /*
-    Buttons, operators, and keys styles
+    CALCULATOR Buttons, operators, and keys styles
  */
+.buttons {
+    display: inline-block;
+}
 
 .button {
     float: left;
-    width: 71px;
+    width: 60px;
     height: 60px;
     background-color: #2c302e;
     border: none;
     color: white;
     font-size: 1.2em;
     font-family: "Abel", sans-serif;
+    border-radius: 30px;
 }
+    .button:hover {
+        background-color: #333835;
+        cursor: pointer;
+    }
 
 .operators, .calc-operators > .button {
-    border-radius: 30px;
     background-color: #495780;
     width: 60px;
 }
+    .operators:hover, .calc-operators > .button:hover {
+        background-color: #41437f;
+    }
 
 .button.eval {
     background-color: #4CAD55;
 }
+    .button.eval:hover {
+        background-color: #54bf5e;
+    }
 
 .operator-row .button:not(:last-child) {
     color: #4CAD55;
 }
 
 .backspace img {
-    width: 50%;
+    width: 40%;
+    padding-top: 7px;
 }
 
 
-/*POSITIONING CSS*/
+/* CALCULATOR POSITIONING CSS*/
 
 .calc-numbers {
     max-width: 100%;
@@ -104,6 +129,46 @@
     }
 
 /*END POSITIONING CSS*/
+
+
+/*HISTORY STYLES*/
+#history {
+    display: inline-block;
+    vertical-align: top;
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    font-family: "Abel", sans-serif;
+    min-width: 230px;
+}
+    #history h3 {
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 1.5em;
+        border-bottom: 1px solid #666;
+        padding-bottom: 10px;
+    }
+
+    #history p {
+        margin: 20px 0;
+    }
+
+    #history .item {
+        background-color: #495780;
+        padding: 4px 9px;
+    }
+        #history .item:hover {
+            background-color: #41437f;
+            cursor: pointer;
+        }
+
+    #history .answer {
+        background-color: #3f4442;
+        padding: 4px 9px;
+    }
+        #history .answer:hover {
+            background-color: #306d36;
+            cursor: pointer;
+        }
 
 
 .clearfix:after {
