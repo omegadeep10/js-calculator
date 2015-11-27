@@ -134,12 +134,14 @@ function addToHistory(expression, output) {
 }
 
 
-
+//replaces content of the calcScreen with the content of the clicked span
 function clickHistoryItem(event) {
-    var element = event.target;
-    if (event.target !== event.currentTarget & element.nodeName.toLowerCase() === "span") {
-        var clickedItemContent = event.target.innerHTML;
-        calcScreen.value = clickedItemContent;
+    var element = event.target;   //element that was clicked
+
+
+    //checks to make sure the element that was clicked was a span
+    if (element.nodeName.toLowerCase() === "span") {
+        calcScreen.value = event.target.innerHTML;  //replace calcScreen value with content from the clicked span
     }
-    event.stopPropagation();
+    event.stopPropagation();  //stops the event from propagating up the tree
 }
