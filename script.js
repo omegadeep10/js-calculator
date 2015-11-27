@@ -12,6 +12,8 @@ evaluate.addEventListener("click", calcMath);
 clear.addEventListener("click", clearScreen);
 //deletes last character entered into calculator screen
 deleteKey.addEventListener("click", deleteLastCharacter);
+//add event listener to historyDiv to listen for clicks on "span" elements using event bubbling. (see function)
+historyDiv.addEventListener("click", clickHistoryItem, false);
 
 
 
@@ -129,4 +131,15 @@ function deleteLastCharacter() {
 
 function addToHistory(expression, output) {
     historyDiv.innerHTML += "<p><span class=\"history item\">"+ expression + "</span> = <span class=\"history answer\">" + output + "</span></p>";
+}
+
+
+
+function clickHistoryItem(event) {
+    var element = event.target;
+    if (event.target !== event.currentTarget & element.nodeName.toLowerCase() === "span") {
+        var clickedItemContent = event.target.innerHTML;
+        calcScreen.value = clickedItemContent;
+    }
+    event.stopPropagation();
 }
