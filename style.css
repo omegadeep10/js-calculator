@@ -5,7 +5,10 @@ body {
 #calculator {
     background: #2c302e;
     display: inline-block;
-    margin-top: 8%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .calc-container {
