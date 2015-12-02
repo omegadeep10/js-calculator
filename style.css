@@ -3,6 +3,51 @@ body {
     background-color: black;
 }
 
+/*Title styles*/
+#title {
+    display: inline-block;
+    color: white;
+    text-align: left;
+    position: absolute;
+    top: 32%;
+    left: 70%;
+    transform: translate(-70%, -32%);
+}
+    #title h1 {
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 3em;
+        margin: 0;
+    }
+
+    #title p {
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size: 1.5em;
+        color: #777;
+        margin: 0;
+    }
+
+    #title .credits {
+        margin-top: 150px;
+        color: white;
+    }
+
+    #title .credits a {
+        padding: 0px 7px;
+        margin: 0 2px;
+        text-decoration: none;
+        background-color: #8B2635;
+        color: white;
+        transition: all .2s ease;
+    }
+
+        #title .credits a:hover {
+            background-color: #4C151D;
+        }
+
+
+
+/*Calculator Styles*/
+
 #calculator {
     background: #2c302e;
     display: inline-block;
@@ -10,6 +55,7 @@ body {
     top: 50%;
     left: 20%;
     transform: translate(-20%, -50%);
+
 }
 
 .calc-container {
@@ -18,50 +64,49 @@ body {
     padding: 20px 40px 40px 20px;
     border-right: 15px solid #000;
 }
-/*
-    CALCULATOR Screen styles
- */
+
 .screen-container {
     position: relative;
 }
 
-#screen {
-    display: block;
-    width: 92%;
-    float: right;
-    background-color: #2c302e;
-    border: none;
-    border-bottom: 1px solid #888;
-    text-align: right;
-    margin: 0 2px 30px 0;
-    padding: 18px 0;
-    color: white;
-    font-size: 2em;
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-#messageText {
-    color: white;
-    background-color: #D34F73;
-    padding: 6px 7px;
-    position: absolute;
-    left: 21px;
-    top: 20px;
-    
-    text-align: center;
-    font-family: "Abel", sans-serif;
-    font-size: .9em;
-
-    display: none;
-}
-    
-    #messageText.active {
+    #screen {
         display: block;
+        width: 92%;
+        float: right;
+        background-color: #2c302e;
+        border: none;
+        border-bottom: 1px solid #888;
+        text-align: right;
+        margin: 0 2px 30px 0;
+        padding: 18px 0;
+        color: white;
+        font-size: 2em;
+        font-family: 'Open Sans Condensed', sans-serif;
     }
 
-    #messageText:hover {
-        opacity: .4;
-    }
+        #messageText {
+            color: white;
+            background-color: #D34F73;
+            padding: 6px 7px;
+            position: absolute;
+            left: 21px;
+            top: 20px;
+            
+            text-align: center;
+            font-family: "Abel", sans-serif;
+            font-size: .9em;
+
+            display: none;
+            transition: all .2s ease;
+        }
+            
+            #messageText.active {
+                display: block;
+            }
+
+            #messageText:hover {
+                opacity: .4;
+            }
 
 /*
     CALCULATOR Buttons, operators, and keys styles
@@ -80,6 +125,7 @@ body {
     font-size: 1.2em;
     font-family: "Abel", sans-serif;
     border-radius: 30px;
+    transition: all .3s ease;
 }
     .button:hover {
         background-color: #333835;
@@ -155,11 +201,13 @@ body {
 
     #history p {
         margin: 20px 0;
+        transition: all .3s ease;
     }
 
     #history .item {
         background-color: #495780;
         padding: 4px 9px;
+        transition: inherit;
     }
         #history .item:hover {
             background-color: #41437f;
@@ -169,6 +217,7 @@ body {
     #history .answer {
         background-color: #3f4442;
         padding: 4px 9px;
+        transition: inherit;
     }
         #history .answer:hover {
             background-color: #306d36;
