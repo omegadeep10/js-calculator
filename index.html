@@ -8,12 +8,17 @@
   </head>
   <body>
 
+  <div id="title">
+    <h1>Simple Calculator</h1>
+    <p>Nothing more, nothing less.</p>
+    <p class="credits">A small project by <a href="http://github.com/omegadeep10">omegadeep10</a> and <a href="http://github.com/meatzie">Meatzie</a>.</p>
+  </div>
 <!--Calculator-->
-  <div id="calculator" class="clearfix">
+  <div id="calculator">
         <div class="calc-container clearfix">
             <!--Screen-->
             <div class="clearfix screen-container">
-                <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)" maxlength="1000"></input>
+                <input type="text" name="screen" id="screen" onkeypress="handleKeyPress(event)" maxlength="1000">
                 <span id="messageText"></span>
             </div>
             
@@ -23,7 +28,7 @@
                     <button name="clear" type="button" class="button clear">C</button>
                     <button name="(" type="button" class="button key">(</button>
                     <button name=")" type="button" class="button key">)</button>
-                    <button name="*" type="button" class="button operators">&times</button>
+                    <button name="*" type="button" class="button operators">&times;</button>
                 </div>
                 
                 <div class="calc-numbers">
@@ -54,7 +59,7 @@
                 </div>
                 
                 <div class="calc-operators clearfix">
-                    <button name="/" type="button" class="button operators">&divide</button>
+                    <button name="/" type="button" class="button operators">&divide;</button>
                     <button name="-" type="button" class="button operators">-</button>
                     <button name="+" type="button" class="button operators plus">+</button>
                     <button name="=" type="button" class="button eval" id="eval">=</button>
@@ -66,8 +71,6 @@
             <h3>History</h3>
         </div>
   </div><!--id-calculator-->
-
-
 
     <script src="script.js"></script>
   </body>
