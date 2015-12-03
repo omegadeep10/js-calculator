@@ -35,7 +35,7 @@ calcScreen.focus();
 
 //function that actually calculates the math
 function calcMath() {
-    var expression = sanitizeInput(calcScreen.value);   //sanitize input
+    var expression = sanitizeInput(calcScreen.innerHTML);   //sanitize input
     var output;  //initialize output here, so both the try/catch and if/else later can use it
     
     //Try/Catch statement to handle the eval function crashing
@@ -50,7 +50,7 @@ function calcMath() {
 
     //output the result onto the screen if it's valid
     if (output) {
-        calcScreen.value = output;
+        calcScreen.innerHTML = output;
         
         //clear messageBox if we have clean output.
         messageBox.innerHTML = "";
@@ -65,7 +65,7 @@ function calcMath() {
     }
     else {
         // Return sanitized version on expression to aid user.
-        calcScreen.value = expression;   
+        calcScreen.innerHTML = expression;   
         messageBox.innerHTML = "Bad Input";
         messageBox.className = "active";
     }
@@ -96,7 +96,7 @@ function handleKeyPress(event) {
 function punchKey() {
     //get the name of the button that calls this function
     var buttonValue = this.name;
-    calcScreen.value = calcScreen.value + buttonValue;
+    calcScreen.innerHTML = calcScreen.innerHTML + buttonValue;
     calcScreen.focus();
 }
 
@@ -105,7 +105,7 @@ function punchKey() {
 
 //clears anything on the screen
 function clearScreen() {
-    calcScreen.value = "";
+    calcScreen.innerHTML = "";
     messageBox.className = "";
     calcScreen.focus();
 }
@@ -124,7 +124,7 @@ function sanitizeInput(input) {
 
 //deletes last character from input field
 function deleteLastCharacter() {
-    calcScreen.value = calcScreen.value.slice(0, calcScreen.value.length - 1);  //sets calcScreen to whatever it was before with the last character removed
+    calcScreen.innerHTML = calcScreen.innerHTML.slice(0, calcScreen.innerHTML.length - 1);  //sets calcScreen to whatever it was before with the last character removed
     calcScreen.focus();
 }
 
@@ -141,7 +141,7 @@ function clickHistoryItem(event) {
 
     //checks to make sure the element that was clicked was a span
     if (element.nodeName.toLowerCase() === "span") {
-        calcScreen.value = event.target.innerHTML;  //replace calcScreen value with content from the clicked span
+        calcScreen.innerHTML = event.target.innerHTML;  //replace calcScreen value with content from the clicked span
     }
     event.stopPropagation();  //stops the event from propagating up the tree
 }

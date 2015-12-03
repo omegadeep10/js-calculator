@@ -59,14 +59,12 @@ html, body {
     top: 50%;
     left: 20%;
     transform: translate(-20%, -50%);
-
 }
 
 .calc-container {
     width: 270px;
     display: inline-block;
     padding: 20px 40px 40px 20px;
-    border-right: 15px solid #000;
 }
 
 .screen-container {
@@ -78,11 +76,11 @@ html, body {
         width: 92%;
         float: right;
         background-color: #2c302e;
-        border: none;
+        height: 28px;
         border-bottom: 1px solid #888;
         text-align: right;
         margin: 0 2px 30px 0;
-        padding: 18px 0;
+        padding: 10px 0 25px 0;
         color: white;
         font-size: 2em;
         font-family: 'Open Sans Condensed', sans-serif;
@@ -197,6 +195,16 @@ html, body {
     max-width: 290px;
     overflow: auto;
 }
+     #history:before {
+        content: "";
+        width: 15px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 315px;
+        bottom: 0;
+    }
+    
     #history h3 {
         font-family: "Open Sans Condensed", sans-serif;
         font-size: 1.5em;
