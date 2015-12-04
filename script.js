@@ -4,6 +4,7 @@ var clear = document.querySelector(".button.clear");   //get "C" button
 var messageBox = document.getElementById("messageText");   //get messagebox
 var deleteKey = document.querySelector(".button.backspace"); //get backspace key
 var historyDiv = document.getElementById("history"); //get history div
+var buttonsList = document.querySelectorAll(".button.key, .button.operators"); //get array of all buttons
 
 
 //event listener to calculate math if eval button is clicked
@@ -15,27 +16,66 @@ deleteKey.addEventListener("click", deleteLastCharacter);
 //add event listener to historyDiv to listen for clicks on "span" elements using event bubbling. (see function)
 historyDiv.addEventListener("click", clickHistoryItem, false);
 
-
-
-//Gets list of all buttons that are keys or operators
-var buttonsList = document.querySelectorAll(".button.key, .button.operators");
-
+//Add event listener to every .button.key and .button.operator
 for (var i = 0; i < buttonsList.length; i++) {
     //on button click, add the button's value to the screen
     buttonsList[i].addEventListener("click", punchKey);
 }
 
+//event listener on entire document so user can enter values using keyboard
+document.addEventListener("keypress", keyboardInput, false);
 
 
-//Bring cursor focus to calcScreen to minimize interactions.
-calcScreen.focus();
 
 
+
+
+
+/*
+
+    ALL FUNCTIONS BELOW
+
+ */
+
+//function that handles keyboard input on the webpage
+function keyboardInput(event) {
+
+    var characterCode = event.charCode || event.which || event.keyCode;    //set var to charCode or keyCode. Did it this way for better browser support
+    var fullButtonsList = document.querySelectorAll(".button");     //get a list of all buttons
+    
+    //if key pressed is equal to "c", clear the screen
+    if (characterCode === 99) {
+        clearScreen();
+    }
+    //if key pressed is equal to "backspace" delete last character
+    else if (characterCode === 8) {
+        deleteLastCharacter();
+    }
+    //if key pressed is equal to "enter" calculate math
+    else if (characterCode === 13) {
+        calcMath();
+    }
+
+    //else key pressed must be a number or operator
+    else {
+        //loop through every key to find out which one matches the key that was pressed
+        for (var i = 0; i < fullButtonsList.length; i++) {
+            var currentElementKeycode = parseInt(fullButtonsList[i].getAttribute("data-keycode"));  //current element keycode
+
+            //if current element's keycode matches the code of the character that was pressed...
+            if (currentElementKeycode === characterCode) {
+                calcScreen.innerHTML = calcScreen.innerHTML + fullButtonsList[i].name; //add the current element's name to the screen
+                break;  //end loop since we have our match
+            }
+        }
+    }
+    event.stopPropagation();
+}
 
 
 //function that actually calculates the math
 function calcMath() {
-    var expression = sanitizeInput(calcScreen.value);   //sanitize input
+    var expression = sanitizeInput(calcScreen.innerHTML);   //sanitize input
     var output;  //initialize output here, so both the try/catch and if/else later can use it
     
     //Try/Catch statement to handle the eval function crashing
@@ -50,7 +90,7 @@ function calcMath() {
 
     //output the result onto the screen if it's valid
     if (output) {
-        calcScreen.value = output;
+        calcScreen.innerHTML = output;
         
         //clear messageBox if we have clean output.
         messageBox.innerHTML = "";
@@ -65,38 +105,18 @@ function calcMath() {
     }
     else {
         // Return sanitized version on expression to aid user.
-        calcScreen.value = expression;   
+        calcScreen.innerHTML = expression;   
         messageBox.innerHTML = "Bad Input";
         messageBox.className = "active";
     }
-
-    calcScreen.focus();
 }
-
-
-
-/*
-
-    ALL FUNCTIONS BELOW
-
- */
-
-
-//called by screen; checks if key pressed = enter and calls calcMath function [See NOTE 3]
-function handleKeyPress(event) {
-    if (event.which === 13 || event.keyCode === 13) {
-        calcMath();
-    }
-}
-
-
 
 
 //adds the value of the key that calls this function to the calcScreen [See NOTE 4]
 function punchKey() {
     //get the name of the button that calls this function
     var buttonValue = this.name;
-    calcScreen.value = calcScreen.value + buttonValue;
+    calcScreen.innerHTML = calcScreen.innerHTML + buttonValue;
     calcScreen.focus();
 }
 
@@ -105,7 +125,7 @@ function punchKey() {
 
 //clears anything on the screen
 function clearScreen() {
-    calcScreen.value = "";
+    calcScreen.innerHTML = "";
     messageBox.className = "";
     calcScreen.focus();
 }
@@ -124,7 +144,7 @@ function sanitizeInput(input) {
 
 //deletes last character from input field
 function deleteLastCharacter() {
-    calcScreen.value = calcScreen.value.slice(0, calcScreen.value.length - 1);  //sets calcScreen to whatever it was before with the last character removed
+    calcScreen.innerHTML = calcScreen.innerHTML.slice(0, calcScreen.innerHTML.length - 1);  //sets calcScreen to whatever it was before with the last character removed
     calcScreen.focus();
 }
 
@@ -141,7 +161,7 @@ function clickHistoryItem(event) {
 
     //checks to make sure the element that was clicked was a span
     if (element.nodeName.toLowerCase() === "span") {
-        calcScreen.value = event.target.innerHTML;  //replace calcScreen value with content from the clicked span
+        calcScreen.innerHTML = event.target.innerHTML;  //replace calcScreen value with content from the clicked span
     }
     event.stopPropagation();  //stops the event from propagating up the tree
 }
