@@ -18,55 +18,55 @@
         <div class="calc-container clearfix">
             <!--Screen-->
             <div class="clearfix screen-container">
-                <span id="screen" onkeypress="handleKeyPress(event)"></span>
+                <span id="screen"></span>
                 <span id="messageText"></span>
             </div>
             
             <div class="buttons clearfix">
                 
                 <div class="operator-row clearfix">
-                    <button name="clear" type="button" class="button clear">C</button>
-                    <button name="(" type="button" class="button key">(</button>
-                    <button name=")" type="button" class="button key">)</button>
-                    <button name="*" type="button" class="button operators">&times;</button>
+                    <button data-keycode="99" name="clear" type="button" class="button clear">C</button>
+                    <button data-keycode="40" name="(" type="button" class="button key">(</button>
+                    <button data-keycode="41" name=")" type="button" class="button key">)</button>
+                    <button data-keycode="42" name="*" type="button" class="button operators">&times;</button>
                 </div>
                 
                 <div class="calc-numbers">
                     <div class="row">
-                        <button name="1" type="button" class="button key">1</button>
-                        <button name="2" type="button" class="button key">2</button>
-                        <button name="3" type="button" class="button key">3</button>
+                        <button data-keycode="49" name="1" type="button" class="button key">1</button>
+                        <button data-keycode="50" name="2" type="button" class="button key">2</button>
+                        <button data-keycode="51" name="3" type="button" class="button key">3</button>
                     </div>
                     
                     <div class="row">
-                        <button name="4" type="button" class="button key">4</button>
-                        <button name="5" type="button" class="button key">5</button>
-                        <button name="6" type="button" class="button key">6</button>
+                        <button data-keycode="52" name="4" type="button" class="button key">4</button>
+                        <button data-keycode="53" name="5" type="button" class="button key">5</button>
+                        <button data-keycode="54" name="6" type="button" class="button key">6</button>
                     </div>
                     
                     <div class="row">
-                        <button name="7" type="button" class="button key">7</button>
-                        <button name="8" type="button" class="button key">8</button>
-                        <button name="9" type="button" class="button key">9</button>
+                        <button data-keycode="55" name="7" type="button" class="button key">7</button>
+                        <button data-keycode="56" name="8" type="button" class="button key">8</button>
+                        <button data-keycode="57" name="9" type="button" class="button key">9</button>
                     </div>
 
                     <div class="row">
-                        <button name="D" type="button" class="button backspace"><img src="assets/backspace1.png" alt="backspace"/></button>
-                        <button name="0" type="button" class="button key">0</button>
-                        <button name="." type="button" class="button key">.</button>
+                        <button data-keycode="8" name="D" type="button" class="button backspace"><img src="assets/backspace1.png" alt="backspace"/></button>
+                        <button data-keycode="48" name="0" type="button" class="button key">0</button>
+                        <button data-keycode="46" name="." type="button" class="button key">.</button>
                     </div>
 
                 </div>
                 
                 <div class="calc-operators clearfix">
-                    <button name="/" type="button" class="button operators">&divide;</button>
-                    <button name="-" type="button" class="button operators">-</button>
-                    <button name="+" type="button" class="button operators plus">+</button>
-                    <button name="=" type="button" class="button eval" id="eval">=</button>
+                    <button data-keycode="47" name="/" type="button" class="button operators">&divide;</button>
+                    <button data-keycode="45" name="-" type="button" class="button operators">-</button>
+                    <button data-keycode="43" name="+" type="button" class="button operators plus">+</button>
+                    <button data-keycode="13" name="=" type="button" class="button eval" id="eval">=</button>
                 </div>
             </div> <!--class-buttons-->
         </div><!--class-calc-container-->
-        
+
         <div id="history">
             <h3>History</h3>
         </div>

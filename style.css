@@ -64,7 +64,7 @@ html, body {
 .calc-container {
     width: 270px;
     display: inline-block;
-    padding: 20px 40px 40px 20px;
+    padding: 20px 40px 20px 20px;
 }
 
 .screen-container {
@@ -204,7 +204,7 @@ html, body {
         left: 315px;
         bottom: 0;
     }
-    
+
     #history h3 {
         font-family: "Open Sans Condensed", sans-serif;
         font-size: 1.5em;

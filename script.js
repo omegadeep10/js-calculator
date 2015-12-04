@@ -4,6 +4,7 @@ var clear = document.querySelector(".button.clear");   //get "C" button
 var messageBox = document.getElementById("messageText");   //get messagebox
 var deleteKey = document.querySelector(".button.backspace"); //get backspace key
 var historyDiv = document.getElementById("history"); //get history div
+var buttonsList = document.querySelectorAll(".button.key, .button.operators"); //get array of all buttons
 
 
 //event listener to calculate math if eval button is clicked
@@ -15,22 +16,52 @@ deleteKey.addEventListener("click", deleteLastCharacter);
 //add event listener to historyDiv to listen for clicks on "span" elements using event bubbling. (see function)
 historyDiv.addEventListener("click", clickHistoryItem, false);
 
-
-
-//Gets list of all buttons that are keys or operators
-var buttonsList = document.querySelectorAll(".button.key, .button.operators");
-
+//Add event listener to every .button.key and .button.operator
 for (var i = 0; i < buttonsList.length; i++) {
     //on button click, add the button's value to the screen
     buttonsList[i].addEventListener("click", punchKey);
 }
 
+//event listener on entire document so user can enter values using keyboard
+document.addEventListener("keypress", keyboardInput, false);
 
 
-//Bring cursor focus to calcScreen to minimize interactions.
-calcScreen.focus();
 
 
+
+
+
+/*
+
+    ALL FUNCTIONS BELOW
+
+ */
+function keyboardInput(event) {
+    console.log(event.which);
+    var characterCode = event.charCode || event.keyCode;
+    var fullButtonsList = document.querySelectorAll(".button");
+    
+    if (characterCode === 99) {
+        clearScreen();
+    }
+    else if (characterCode === 8) {
+        deleteLastCharacter();
+    }
+    else if (characterCode === 13) {
+        calcMath();
+    }
+    else {
+        for (var i = 0; i < fullButtonsList.length; i++) {
+            var currentElementKeycode = parseInt(fullButtonsList[i].getAttribute("data-keycode"));
+            if (currentElementKeycode === characterCode) {
+                calcScreen.innerHTML = calcScreen.innerHTML + fullButtonsList[i].name;
+                console.log(fullButtonsList[i].name);
+                break;
+            }
+        }
+    }
+    event.stopPropagation();
+}
 
 
 //function that actually calculates the math
@@ -69,27 +100,7 @@ function calcMath() {
         messageBox.innerHTML = "Bad Input";
         messageBox.className = "active";
     }
-
-    calcScreen.focus();
 }
-
-
-
-/*
-
-    ALL FUNCTIONS BELOW
-
- */
-
-
-//called by screen; checks if key pressed = enter and calls calcMath function [See NOTE 3]
-function handleKeyPress(event) {
-    if (event.which === 13 || event.keyCode === 13) {
-        calcMath();
-    }
-}
-
-
 
 
 //adds the value of the key that calls this function to the calcScreen [See NOTE 4]
