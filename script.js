@@ -36,27 +36,36 @@ document.addEventListener("keypress", keyboardInput, false);
     ALL FUNCTIONS BELOW
 
  */
+
+//function that handles keyboard input on the webpage
 function keyboardInput(event) {
-    console.log(event.which);
-    var characterCode = event.charCode || event.keyCode;
-    var fullButtonsList = document.querySelectorAll(".button");
+
+    var characterCode = event.charCode || event.which || event.keyCode;    //set var to charCode or keyCode. Did it this way for better browser support
+    var fullButtonsList = document.querySelectorAll(".button");     //get a list of all buttons
     
+    //if key pressed is equal to "c", clear the screen
     if (characterCode === 99) {
         clearScreen();
     }
+    //if key pressed is equal to "backspace" delete last character
     else if (characterCode === 8) {
         deleteLastCharacter();
     }
+    //if key pressed is equal to "enter" calculate math
     else if (characterCode === 13) {
         calcMath();
     }
+
+    //else key pressed must be a number or operator
     else {
+        //loop through every key to find out which one matches the key that was pressed
         for (var i = 0; i < fullButtonsList.length; i++) {
-            var currentElementKeycode = parseInt(fullButtonsList[i].getAttribute("data-keycode"));
+            var currentElementKeycode = parseInt(fullButtonsList[i].getAttribute("data-keycode"));  //current element keycode
+
+            //if current element's keycode matches the code of the character that was pressed...
             if (currentElementKeycode === characterCode) {
-                calcScreen.innerHTML = calcScreen.innerHTML + fullButtonsList[i].name;
-                console.log(fullButtonsList[i].name);
-                break;
+                calcScreen.innerHTML = calcScreen.innerHTML + fullButtonsList[i].name; //add the current element's name to the screen
+                break;  //end loop since we have our match
             }
         }
     }
