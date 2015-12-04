@@ -327,7 +327,11 @@ html, body {
     }
 
         #title .credits {
-            margin-top: 60px;
+            margin-top: 30px;
+        }
+
+        #title ul {
+            margin-top: 50px;
         }
 
     #calculator {
@@ -335,6 +339,13 @@ html, body {
         transform: none;
         margin-top: 100px;
         margin-bottom: 75px;
+    }
+        .calc-container {
+            border-right: 15px solid #000;
+        }
+
+    #history:before {
+        display: none;
     }
 }
 
